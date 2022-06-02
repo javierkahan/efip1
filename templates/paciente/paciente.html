@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <!-- MESSAGE -->
+    {% include 'partials/_message.html' %}
+
+    <form action="/listar_paciente" method="POST">
+        <div class="container-fluid" >
+            <form class="d-flex">
+              <input class="form-control my-sm-2" type="text" name=dni placeholder="Ingrese DNI">
+              <button class="btn btn-secondary" type="submit">Filtrar</button>
+            </form>
+        </div>
+    </form>
+
+    <div class="col-md-12 p-3">
+        <div class="d-flex justify-content-between" >
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">Fecha de Nacimiento</th>
+                  <th scope="col">eMail</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              {% for paciente in pacientes %}
+                  <tbody>
+                    <tr class="table-dark">
+                      <td>{{ paciente.id_paciente }}</td>
+                      <td>{{ paciente.nombre }}</td>
+                      <td>{{ paciente.apellido }}</td>
+                      <td>{{ paciente.dni }}</td>
+                      <td>{{ paciente.fecha_nacimiento }}</td>
+                      <td>{{ paciente.email }}</td>
+                      <td>{{ paciente.telefono }}</td>
+
+                      <th scope="row">
+                        <div>
+                          <a href="{{ url_for('pacientes.actualizar_paciente', id_paciente=paciente.id_paciente) }}" class="btn btn-dark btn-sm rounded-0">Editar</a>
+                          <a href="{{ url_for('pacientes.eliminar_paciente', id_paciente=paciente.id_paciente) }}" class="btn btn-danger btn-sm rounded-0">Borrar</a>
+                        </div>
+                      </th>
+                    </tr>
+
+                  </tbody>
+              {% endfor %}
+            </table>
+            </div>
+    </div>
+{% endblock %}

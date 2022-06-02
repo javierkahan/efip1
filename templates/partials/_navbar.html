@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Sistema de Turnos TCA</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+
+      <ul class="navbar-nav me-auto">
+
+        <!-- PACIENTES -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pacientes</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/listar_paciente">Listado de Pacientes</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/nuevo_paciente">Nuevo Paciente</a>
+          </div>
+        </li>
+
+        <!-- PROFESIONALES -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesionales</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/listar_profesional">Listado de Profesionales</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/nuevo_profesional">Nuevo Profesional</a>
+          </div>
+        </li>
+
+        <!-- TURNOS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Turnos</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/nuevo_turno">Nuevo turno</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/listar_turnos">Listado de Turnos</a>
+          </div>
+        </li>
+      </ul>
+
+
+      <!-- LOGIN -->
+      <ul class="navbar-nav me-right">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Login
+              <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

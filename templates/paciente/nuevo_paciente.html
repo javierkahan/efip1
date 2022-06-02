@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <!-- FORM -->
+    <div class="row">
+
+    <div class="col-md-5 p-5">
+      <!-- MESSAGE -->
+      {% include 'partials/_message.html' %}
+
+      <!-- FORM -->
+      {%  include 'partials/_pacienteForm.html' %}
+    </div>
+
+    <!-- Listado de pacientes -->
+    <div class="col-md-7 p-5">
+      {% for paciente in pacientes %}
+        <div class="card mb-4 bg-black text-white">
+          <div class="card-body p4">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title h6">ID: {{ paciente.id_paciente }} - {{ paciente.nombre }} {{ paciente.apellido }}</h5>
+              <div>
+                <a href="{{ url_for('pacientes.actualizar_paciente', id_paciente=paciente.id_paciente) }}" class="btn btn-dark btn-sm rounded-0">Editar</a>
+                <a href="{{ url_for('pacientes.eliminar_paciente', id_paciente=paciente.id_paciente) }}" class="btn btn-danger btn-sm rounded-0">Borrar</a>
+              </div>
+            </div>
+              <p class="card-text">DNI: {{ paciente.dni }}</p>
+              <p class="card-text">Fecha de Nacimiento: {{ paciente.fecha_nacimiento }}</p>
+              <p class="card-text">eMail: {{ paciente.email }}</p>
+              <p class="card-text">Teléfono: {{ paciente.telefono }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+    </div>
+
+{% endblock %}

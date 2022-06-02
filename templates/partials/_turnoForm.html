@@ -1,0 +1,81 @@
+<form action="/nuevo_turno" method="POST" class="card bg-black text-light">
+  <div class="card-body p-4">
+    <h1 class="h5 mb-4">Nuevo Turno</h1>
+
+    <div class="mb-3">
+        <label for="dni">DNI Paciente</label>
+        <input
+            type="number"
+            name="dni"
+            class="form-control rounded-0 bg-dark border-0 text-white"
+            placeholder=""
+            autofocus
+            required
+        />
+    </div>
+
+    <!-- SIMPLIFICO ELECCION DE PROFESIONAL MAS ABAJO
+       <div class="mb-3">
+           <form action="/listar_profesional_especialidad" method="GET, POST">
+           <label for="especialidad">Especialidad</label>
+                <select class="custom-select d-block form-control rounded-0 bg-dark border-0 text-white w-100" name="especialidad" >
+                    <option>Psicología</option>
+                    <option>Psiquiatría</option>
+                    <option>Nutrición</option>
+                </select>
+
+              <button class="btn btn-secondary" type="submit">Filtrar</button>
+            </form>
+        </div>
+
+
+
+       <div class="mb-3">
+    <label for="especialidad">Especialidad</label>
+        <select class="custom-select d-block form-control rounded-0 bg-dark border-0 text-white w-100" name="especialidad" >
+          <option>Psicología</option>
+          <option>Psiquiatría</option>
+          <option>Nutrición</option>
+        </select>
+    </div>
+    -->
+
+    <div class="mb-3">
+    <label for="profesional_elegido">Profesional</label>
+        <select class="custom-select d-block form-control rounded-0 bg-dark border-0 text-white w-100" name="profesional_elegido">
+            {% for profesional in profesionales %}
+                <option value="{{ profesional.id_profesional }}">{{ profesional.especialidad }} - {{ profesional.nombre }} {{ profesional.apellido }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- USO DIRECTO FECHA Y HORA
+    <div class="mb-3">
+    <label for="fecha_turno">Fecha del Turno</label>
+    <input
+        type="date"
+        name="fecha_turno"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder=""
+        autofocus
+    />
+    </div>
+    -->
+
+
+    <div class="mb-3">
+    <label for="fecha_turno">Fecha del Turno</label>
+    <input
+        type="datetime-local"
+        name="fecha_turno"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder=""
+        autofocus
+        required
+    />
+    </div>
+
+  </div>
+
+    <button class="btn btn-primary">Guardar</button>
+</form>

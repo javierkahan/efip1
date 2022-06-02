@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <!-- MESSAGE -->
+    {% include 'partials/_message.html' %}
+
+    <form action="/listar_profesional" method="POST">
+        <div class="container-fluid" >
+            <form class="d-flex">
+              <input class="form-control my-sm-2" type="text" name=dni placeholder="Ingrese DNI">
+              <button class="btn btn-secondary" type="submit">Filtrar</button>
+            </form>
+        </div>
+    </form>
+
+    <div class="col-md-12 p-3">
+        <div class="d-flex justify-content-between" >
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">eMail</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Especialidad</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              {% for profesional in profesionales %}
+                  <tbody>
+                    <tr class="table-dark">
+                      <td>{{ profesional.id_profesional }}</td>
+                      <td>{{ profesional.nombre }}</td>
+                      <td>{{ profesional.apellido }}</td>
+                      <td>{{ profesional.dni }}</td>
+                      <td>{{ profesional.email }}</td>
+                      <td>{{ profesional.telefono }}</td>
+                      <td>{{ profesional.especialidad }}</td>
+
+                      <th scope="row">
+                        <div>
+                          <a href="{{ url_for('profesionales.actualizar_profesional', id_profesional=profesional.id_profesional) }}" class="btn btn-dark btn-sm rounded-0">Editar</a>
+                          <a href="{{ url_for('profesionales.eliminar_profesional', id_profesional=profesional.id_profesional) }}" class="btn btn-danger btn-sm rounded-0">Borrar</a>
+                        </div>
+                      </th>
+                    </tr>
+
+                  </tbody>
+              {% endfor %}
+            </table>
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="col-md-12 p-3">
+        <form action="/listar_turnos" method="POST">
+            <div class="container-fluid" >
+                <form class="d-flex">
+                  <input class="form-control my-sm-2" type="text" name=dni placeholder="Ingrese DNI Paciente">
+                  <button class="btn btn-secondary" type="submit">Filtrar</button>
+                </form>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-12 p-3">
+        <div class="d-flex justify-content-between" >
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">DNI</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Nombre Profesional</th>
+                  <th scope="col">Apellido Profesional</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              {% for turno in lista_turnos %}
+                  <tbody>
+                    <tr class="table-dark">
+                      <td>{{ turno.Paciente.dni }}</td>
+                      <td>{{ turno.Paciente.nombre }}</td>
+                      <td>{{ turno.Paciente.apellido }}</td>
+                      <td>{{ turno.Profesional.nombre }}</td>
+                      <td>{{ turno.Profesional.apellido }}</td>
+                      <td>{{ turno.Turno.fecha_turno }}</td>
+                      <td>{{ turno.Turno.estado_turno }}</td>
+
+                      <th scope="row">
+                        <div>
+                          <a href="{{ url_for('turnos.eliminar_turno', id_turno=turno.Turno.id_turno) }}" class="btn btn-danger btn-sm rounded-0">Cancelar</a>
+                        </div>
+                      </th>
+                    </tr>
+
+                  </tbody>
+              {% endfor %}
+            </table>
+            </div>
+    </div>
+{% endblock %}

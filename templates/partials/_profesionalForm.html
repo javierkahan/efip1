@@ -1,0 +1,75 @@
+<form action="/nuevo_profesional" method="POST" class="card bg-black text-light">
+  <div class="card-body p-4">
+    <h1 class="h5 mb-4">Nuevo Profesional</h1>
+
+    <div class="mb-3">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        name="nombre"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder=""
+        autofocus
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="apellido">Apellido</label>
+      <input
+        type="text"
+        name="apellido"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder=""
+        autofocus
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+    <label for="dni">DNI</label>
+    <input
+        type="number"
+        name="dni"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder=""
+        autofocus
+        required
+    />
+    </div>
+
+    <div class="mb-3">
+      <label for="email">eMail</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder=""
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+    <label for="telefono">Telefono</label>
+    <input
+        type="number"
+        name="telefono"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        autofocus
+        required
+    />
+    </div>
+
+    <div class="mb-3">
+    <label for="especialidad">Especialidad</label>
+        <select class="custom-select d-block form-control rounded-0 bg-dark border-0 text-white w-100" name="especialidad" required>
+          <option>Psicología</option>
+          <option>Psiquiatría</option>
+          <option>Nutrición</option>
+        </select>
+    </div>
+
+  </div>
+
+    <button class="btn btn-primary">Guardar</button>
+</form>

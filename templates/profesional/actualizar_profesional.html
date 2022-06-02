@@ -1,0 +1,68 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="col-md-4 offset-md-4">
+  <div class="card card-body bg-dark text-white">
+    <h6>Editar Datos de Paciente</h6>
+
+    <form action="{{url_for('profesionales.actualizar_profesional', id_profesional=profesional.id_profesional)}}" method="POST">
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          name="nombre"
+          value="{{profesional.nombre}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="apellido">Apellido</label>
+        <input
+          type="text"
+          name="apellido"
+          value="{{profesional.apellido}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="dni">DNI</label>
+        <input
+          type="text"
+          name="dni"
+          value="{{profesional.dni}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email">eMail</label>
+        <input
+          type="email"
+          name="email"
+          value="{{profesional.email}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="telefono">Telefono</label>
+        <input
+          type="text"
+          name="telefono"
+          value="{{profesional.telefono}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="dni">Especialidad</label>
+        <input
+          type="text"
+          name="especialidad"
+          value="{{profesional.especialidad}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+
+      <button class="btn btn-primary">Actualizar</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

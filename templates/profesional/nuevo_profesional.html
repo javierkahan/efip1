@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <!-- FORM -->
+    <div class="row">
+
+        <div class="col-md-5 p-5">
+          <!-- MESSAGE -->
+          {% include 'partials/_message.html' %}
+
+          <!-- FORM -->
+          {%  include 'partials/_profesionalForm.html' %}
+        </div>
+
+        <!-- Listado de profesionales -->
+        <div class="col-md-7 p-5">
+          {% for profesional in profesionales %}
+            <div class="card mb-4 bg-black text-white">
+              <div class="card-body p4">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title h6">ID: {{ profesional.id_profesional }} - {{ profesional.nombre }} {{ profesional.apellido }}</h5>
+                  <div>
+                    <a href="{{ url_for('profesionales.actualizar_profesional', id_profesional=profesional.id_profesional) }}" class="btn btn-dark btn-sm rounded-0">Editar</a>
+                    <a href="{{ url_for('profesionales.eliminar_profesional', id_profesional=profesional.id_profesional) }}" class="btn btn-danger btn-sm rounded-0">Borrar</a>
+                  </div>
+                </div>
+                  <p class="card-text">DNI: {{ profesional.dni }}</p>
+                  <p class="card-text">eMail: {{ profesional.email }}</p>
+                  <p class="card-text">Teléfono: {{ profesional.telefono }}</p>
+                  <p class="card-text">Especialidad: {{ profesional.especialidad }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
